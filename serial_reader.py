@@ -19,18 +19,17 @@ cur = con.cursor()
 cur.execute("CREATE TABLE IF NOT EXISTS water_intake(timestamp DATE PRIMARY KEY, waterconsumed int);""")
 
 def find_comport(pid, vid, baud):
-	# A simple function to find the port the microbit is running on if none is found it will return None.
-	ser_port = serial.Serial(timeout=0.1)
-	ser_port.baudrate = baud
-	ports = list(list_ports.comports())
-	
-	for p in ports
-		if p.pid == pid and p.vid == vid:
-			print(f"Found target device: \n\tport: {p.device}")
-			ser_port.port = str(p.device)
-			return ser_port
+    # A simple function to find the port the microbit is running on if none is found it will return None.
+    ser_port = serial.Serial(timeout=0.1)
+    ser_port.baudrate = baud
+    ports = list(list_ports.comports())	
+    for p in ports:
+        if p.pid == pid and p.vid == vid:
+            print(f"Found target device: \n\tport: {p.device}")
+            ser_port.port = str(p.device)
+            return ser_port
 
-	return None
+    return None
 
 
 def main():
